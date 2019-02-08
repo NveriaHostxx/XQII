@@ -54,7 +54,6 @@ if (message.content.startsWith(prefix + 'help')) {
     ❖ -move @user => Move User To Your Room Voice | لسحب الشخص الى روومك
     ❖ -mvall => Move All To Your Room Voice | لسحب الجميع الي روومك
     ❖ -bc => Broadcast | رسالة جماعية الى كل اعضاء السيرفر
-    ❖ -role @user <rank> => Give User Rank | لأعطاء رتبة لعضو معين
     ❖ -roleremove @user <rank> => remove Rank From User | لازالة الرتبة من شخص معين
     ❖ -role all <rank> => Give All Rank | لأعطاء رتبة للجميع
     ❖ -role humans <rank> => Give Humans Rank | لأعطاء رتبة للاشخاص فقط
@@ -404,7 +403,7 @@ client.on('guildCreate', guild => {
      .setTitle('Click Here To Add Bot .!')
      .setURL('https://discordapp.com/oauth2/authorize?client_id=522879167449006101&permissions=0&scope=bot')
   .setDescription(`**
-  New Server NeviriaBot ✅
+  New Server NASA ✅
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__
 Server id: __${guild.id}__ 
@@ -418,7 +417,7 @@ client.on('guildDelete', guild => {
      .setTitle('Click Here To Add Bot .!')
      .setURL('https://discordapp.com/oauth2/authorize?client_id=522879167449006101&permissions=0&scope=bot')
   .setDescription(`**
-   Server kicked Speed Bot :cry:
+   Server kicked NASABot :cry:
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__
 Server id: __${guild.id}__ 
@@ -760,7 +759,7 @@ client.on('message', message => {
             .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('RANDOM')
-            .setTitle('``INFO NeviriaBot`` ')
+            .setTitle('``INFO NASABot`` ')
             .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
             .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
             .addField('``servers``', [client.guilds.size], true)
@@ -884,7 +883,7 @@ if(!args[0]) return message.reply('Write Some Things');
     if(!message.channel.guild) return message.channel.send('**This Command Only For Servers**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**You Dont Have perms** `ADMINISTRATOR`' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-    let copy = "Neviria Bot";
+    let copy = "NASABot";
     let request = `Requested By ${message.author.username}`;
     if (!args) return message.reply('**Write Some Things To Broadcast**');message.channel.send(`**Are You Sure \nThe Broadcast: ** \` ${args}\``).then(msg => {
     msg.react('✅')
@@ -1361,23 +1360,7 @@ client.on('message', message => {
     }
 });
 
-var AsciiTable = require('ascii-data-table').default
-client.on('message', message =>{
 
-    if(message.content == "-roles"){
-        var 
-        ros=message.guild.roles.size,
-        data = [['Rank', 'RoleName']]
-        for(let i =0;i<ros;i++){
-            if(message.guild.roles.array()[i].id !== message.guild.id){
-         data.push([i,`${message.guild.roles.filter(r => r.position == ros-i).map(r=>r.name)}`])
-        }}
-        let res = AsciiTable.table(data)
-
-        message.channel.send(`**\`\`\`xl\n${res}\`\`\`**`);
-    }
-});
- 
 client.on('ready', () => {
 	console.log('I am ready!'); 
   });
